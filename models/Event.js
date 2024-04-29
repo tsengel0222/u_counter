@@ -10,7 +10,6 @@ const eventSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User" ,
         required: [true, "User ID is required"],
-       
         trim: true,
     },
     sessionId: {
@@ -22,6 +21,11 @@ const eventSchema = new mongoose.Schema({
         ref: "Device" ,
         required:[true,"deviceId is required"],
         
+        trim:true,
+    },
+     description:{
+        type: String,
+        required:[true,"description is required"],
         trim:true,
     }
 });
