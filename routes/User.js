@@ -39,6 +39,22 @@ router.get("/user", async (req, res) => {
   }
 });
 
+
+// Define a route to count users
+router.get("/users/count", async (req, res) => {
+  try {
+    // Query the database to get the count of users
+    const userCount = await User.countDocuments();
+
+    // Send the count of users as the response
+    res.status(200).json({ count: userCount });
+  } catch (error) {
+    // If an error occurs, send an error response
+    console.error("Error counting users:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // Get single post by Id 
 
 // router.get("/contact/:id",async(req,res)=>{

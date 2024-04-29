@@ -6,10 +6,10 @@ const sessionSchema = new mongoose.Schema({
         type: String,
         required: [true, "sessionId is required"],
         minLength: 3,
-        maxLength: 20,
+        maxLength: 100,
         trim: true,
     },
-    userId: {
+    userId1: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
     },
@@ -22,6 +22,5 @@ const sessionSchema = new mongoose.Schema({
     },
 });
 
-const Session = mongoose.model("Session", sessionSchema);
 
-module.exports={Session}
+module.exports=mongoose.model("Session", sessionSchema);

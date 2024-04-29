@@ -9,6 +9,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const User = require("./routes/User");
 app.use("/api",User);
 
+const Session = require("./routes/Session");
+app.use("/api",Session);
+
+const Device = require("./routes/Device");
+app.use("/api",Device);
+
+const City = require("./routes/City");
+app.use("/api",City);
+
+const Event = require("./routes/Event");
+app.use("/api",Event);
 
 // Connection from Mongoose to MongoDB
 const connectToDB = async () => {

@@ -1,33 +1,30 @@
+const mongoose=require("mongoose");
 // Define Event schema
 const eventSchema = new mongoose.Schema({
     eventId: {
         type: String,
         required: [true, "eventId is required"],
-        minLength: 3,
-        maxLength: 20,
         trim: true,
     },
     userId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User" ,
         required: [true, "User ID is required"],
-        minLength: 3,
-        maxLength: 20,
+       
         trim: true,
     },
     sessionId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Session" // Reference to the Session model
+        ref: "Session" 
     },
     deviceId:{
-        type:String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Device" ,
         required:[true,"deviceId is required"],
-        minLength:3,
-        maxLength:20,
+        
         trim:true,
     }
 });
 
-const Event = mongoose.model("Event", eventSchema);
-
-module.exports = {  Event };
+module.exports = mongoose.model("Event", eventSchema);
 
