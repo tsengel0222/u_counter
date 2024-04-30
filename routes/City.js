@@ -198,3 +198,6 @@ router.delete('/city/:id', async (req, res) => {
 // });
 
 module.exports = router;
+
+
+//"deviceId":"device1",
